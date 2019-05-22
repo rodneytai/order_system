@@ -15,17 +15,16 @@ class AccPass extends Migration
     {
         //
         Schema::create('AccPass', function (Blueprint $table) {
-            $table->string('acc')->unique();
+            $table->string('userName')->unique();
             $table->string('passsword');
-            $table->foreign('cusId')
-                  ->references('cusId')->on('CustomerInfo')
-                  ->onDelete('cascade');
+            $table->bigIncrements('cusId');
+            $table->string('userPhone');
             $table->timestamp('created_at')->nullable();
         });
         Schema::table('AccPass', function($table) {
-            $table->foreign('cusId')
-                  ->references('cusId')->on('CustomerInfo')
-                  ->onUpdate('cascade'); //更新覆蓋
+            $table->foreign('cusId') 
+                  ->references('id')->on('users')
+                  ->onUpdate('cascade');  //overwrite on update
         });
     }
 

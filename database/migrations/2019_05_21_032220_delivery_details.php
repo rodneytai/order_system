@@ -14,6 +14,13 @@ class DeliveryDetails extends Migration
     public function up()
     {
         //
+        Schema::create('DeliveryDetails', function (Blueprint $table) {
+            $table->bigIncrements('dId', 10);
+            $table->string('dOrderId'); 
+            $table->string('dStatus', 10); 
+            $table->string('dTime', 20); 
+            $table->string('dArriveTime', 20);
+        });
     }
 
     /**
@@ -24,5 +31,6 @@ class DeliveryDetails extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('DeliveryDetails');
     }
 }

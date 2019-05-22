@@ -14,6 +14,15 @@ class OrderInfo extends Migration
     public function up()
     {
         //
+        Schema::create('OrderInfo', function (Blueprint $table) {
+            $table->bigIncrements('orderId')->unsigned();
+            $table->string('orderGoods', 20); //商品
+            $table->string('orderUnit', 10); //單位
+            $table->decimal('orderUnitPrice', 10, 2); //單位價
+            $table->decimal('orderAmount', 10, 2); //數量
+            $table->decimal('orderTotal', 10, 2); //金額
+            $table->string('orderCus', 10);
+        });
     }
 
     /**
@@ -24,5 +33,6 @@ class OrderInfo extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('OrderInfo');
     }
 }

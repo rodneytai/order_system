@@ -14,6 +14,12 @@ class ProductInfo extends Migration
     public function up()
     {
         //
+        Schema::create('ProductInfo', function (Blueprint $table) {
+            $table->bigIncrements('pId', 10);
+            $table->string('pName', 20);
+            $table->string('pUnit', 10);
+            $table->decimal('pPrice', 8, 2);
+        });
     }
 
     /**
@@ -24,5 +30,6 @@ class ProductInfo extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('ProductInfo');
     }
 }
