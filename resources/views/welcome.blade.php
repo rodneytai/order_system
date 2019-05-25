@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>簡易訂單系統</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -81,17 +81,15 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    簡易訂單系統
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="{{ url('/products_list') }}">商品列表</a>
+                    <a href="#">下訂單</a>
+                    <a href="#">訂單資料</a>
+                    <a href="#">訂單狀態</a>
+                    <a href="#">客戶資料表</a>
                 </div>
             </div>
         </div>
