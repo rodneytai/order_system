@@ -16,9 +16,9 @@ class ProductInfo extends Migration
         //
         Schema::create('ProductInfo', function (Blueprint $table) {
             $table->string('pId', 10)->unique();
-            $table->string('pName', 20);
-            $table->string('pUnit', 10);
-            $table->decimal('pPrice', 8, 2);
+            $table->string('pName', 20)->nullable();
+            $table->string('pUnit', 10)->nullable();
+            $table->decimal('pPrice', 8, 2)->nullable();
         });
     }
 
