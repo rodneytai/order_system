@@ -16,14 +16,68 @@ class Products extends Seeder
         //
         ProductInfo::truncate();
         $faker = Faker::create("zh-TW");
-        foreach ( range(1, 100) as $key) 
+        foreach ( range(1, 109) as $key) 
         {
-        	ProductInfo::create([
-        		'pId' => 'PL0'.$key,
-        		'pName' => $faker->word,
-        		'pUnit' => '個',
-        		'pPrice' => $faker->randomNumber(2),
-        	]);
+        	if ($key < 10) 
+        	{
+        		ProductInfo::create([
+	        		'pId' => 'PL00'.$key,
+	        		'pName' => $faker->word,
+	        		'pUnit' => $faker->randomElement([
+				                    '個',
+				                    '張',
+				                    '打',
+				                    '本',
+				                    '朵',
+				                    '桶',
+				                    '件',
+				                    '輛',
+				                    '把',
+				                    '塊',
+				                ]),
+	        		'pPrice' => $faker->randomNumber(3),
+	        	]);
+        	}
+        	elseif ($key >= 10 && $key <= 99) 
+        	{
+        		ProductInfo::create([
+	        		'pId' => 'PL0'.$key,
+	        		'pName' => $faker->word,
+	        		'pUnit' => $faker->randomElement([
+				                    '個',
+				                    '張',
+				                    '打',
+				                    '本',
+				                    '朵',
+				                    '桶',
+				                    '件',
+				                    '輛',
+				                    '把',
+				                    '塊',
+				                ]),
+	        		'pPrice' => $faker->randomNumber(3),
+	        	]);
+        	}
+        	elseif ($key)
+        	{
+        		ProductInfo::create([
+        			'pId' => 'PL'.$key,
+	        		'pName' => $faker->word,
+	        		'pUnit' => $faker->randomElement([
+				                    '個',
+				                    '張',
+				                    '打',
+				                    '本',
+				                    '朵',
+				                    '桶',
+				                    '件',
+				                    '輛',
+				                    '把',
+				                    '塊',
+				                ]),
+	        		'pPrice' => $faker->randomNumber(3),
+	        	]);
+        	}
         }
     }
 }

@@ -15,11 +15,17 @@ class DeliveryDetails extends Migration
     {
         //
         Schema::create('DeliveryDetails', function (Blueprint $table) {
-            $table->bigIncrements('dId', 10);
-            $table->string('dOrderId'); 
+            $table->engine = 'InnoDB';
+            $table->increments('dId');
+            $table->integer('dOrderId')->unsigned(); 
             $table->string('dStatus', 10); 
             $table->string('dTime', 20); 
             $table->string('dArriveTime', 20);
+        });
+        Schema::table('DeliveryDetails', function($table) {
+            $table->foreign('dOrderId') 
+                  ->references('orderId')->on('OrderInfo')
+                  ->onUpdate('cascade');  //overwrite on update
         });
     }
 

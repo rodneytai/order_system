@@ -18,17 +18,18 @@
                             <td>單價</td>
                         </thead>
                         <tbody>
-                            @for($i = 1; $i <= 10; $i++)
+                            @foreach($products as $p)
                                 <tr align="center">
-                                    @if(Auth::user()->userName == "rodneytai97")
-                                        <td>a</td>
-                                    @endif
-                                    <td>b</td>
-                                    <td>c</td>
-                                    <td>d</td>
-                                    <td>e</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btn-sm" value="{{ $p->pId }}">編輯</button>
+                                        <button type="button" class="btn btn-danger btn-sm" value="{{ $p->pId }}">刪除</button>
+                                    </td>
+                                    <td>{{ $p->pId }}</td>
+                                    <td>{{ $p->pName }}</td>
+                                    <td>{{ $p->pUnit }}</td>
+                                    <td align="right">{{ $p->pPrice }}</td>
                                 </tr>
-                            @endfor
+                            @endforeach
                         </tbody>
                     </table>
                 @endauth
@@ -38,5 +39,10 @@
             </div>
         </div>
     </div>
+    
+    
+</div>
+<div class="pagination justify-content-center">
+    {{ $products->render() }}
 </div>
 @endsection

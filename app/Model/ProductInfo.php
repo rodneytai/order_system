@@ -9,5 +9,5 @@ class ProductInfo extends Model
     //
     public $timestamps = false;
     protected $table = 'ProductInfo';
-    protected $primaryKey = 'pId';
+    // protected $primaryKey = 'pId';
 }
