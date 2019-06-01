@@ -9,6 +9,9 @@ $(document).ready(function() {
         var id = "";
         var unit = "";
         $( "#product_name option:selected" ).each(function() {
+            $('#qty').val('');
+            $('#total').text(0);
+            $('#totalPrice').val(0);
             id = $( this ).val();
             var a = $.map(val, function(value, key){ //find id in array and get unit 
                 if (value.pId == id) 
@@ -16,7 +19,6 @@ $(document).ready(function() {
             });
         });
         $( "#pUnit" ).text( unit );
-
         $('#qty').on('input',function() {
             var qty = $('#qty').val();
             var price = $.map(val, function(value, key){ //find id in array and get price
@@ -24,6 +26,7 @@ $(document).ready(function() {
                     return value.pPrice;
             });
             $('#total').text(qty*price);
+            $('#totalPrice').val(qty*price);
         });
     })
     
@@ -37,8 +40,14 @@ $(document).ready(function() {
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header" align="center">{{ __('訂購商品') }}</div>
-
+            
                 <div class="card-body">
+                    @if($errors)
+                        <span style="color: red; align-items: center;">{{ $errors->first('qty') }}</span>
+                    @endif
+                    @if($msg)
+                        <span style="color: red; align-items: center;">{{ $msg }}</span>
+                    @endif
                     <form method="POST">
                         @csrf
                         <div class="form-group row">
@@ -61,19 +70,19 @@ $(document).ready(function() {
                             <label for="pPrice" class="col-md-4 col-form-label text-md-right">{{ __('金額') }}</label>
                             <div class="col-md-6">
                                 <span name="total" id="total"></span>NTD
+                                <input type="hidden" name="price" id="totalPrice">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="cusName" class="col-md-4 col-form-label text-md-right">{{ __('客戶') }}</label>
                             <div class="col-md-6">
+                                <input type="hidden" value="{{ Auth::user()->id }}" name="customer">
                                 {{ Auth::user()->cusName }}
                             </div>
                         </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('確定訂購') }}
-                                </button>
+                                <input type="submit" class="btn btn-primary" name="order" value="{{ __('確定訂購') }}">
                             </div>
                         </div>
                     </form>
