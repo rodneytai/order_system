@@ -22,20 +22,22 @@
                         <tbody>
                             @foreach($products as $p)
                                 <tr align="center">
-                                    <td>
-                                        @if(Request::has('edit'))
-                                            @if(key(Request::input("edit")) == $p->pId)
-                                                <input name="save[{{ $p->pId }}]" type="submit" class="btn btn-primary btn-sm" value="存">
-                                                <input name="cancel "type="submit" class="btn btn-danger btn-sm" value="取消">
+                                    @if(Auth::user()->userName == "rodneytai97")
+                                        <td>
+                                            @if(Request::has('edit'))
+                                                @if(key(Request::input("edit")) == $p->pId)
+                                                    <input name="save[{{ $p->pId }}]" type="submit" class="btn btn-primary btn-sm" value="存">
+                                                    <input name="cancel "type="submit" class="btn btn-danger btn-sm" value="取消">
+                                                @else
+                                                    <input name="edit[{{ $p->pId }}]" type="submit" class="btn btn-primary btn-sm" value="編輯">
+                                                    <input name="delete[{{ $p->pId }}]" type="submit" class="btn btn-danger btn-sm" value="刪除">
+                                                @endif
                                             @else
                                                 <input name="edit[{{ $p->pId }}]" type="submit" class="btn btn-primary btn-sm" value="編輯">
                                                 <input name="delete[{{ $p->pId }}]" type="submit" class="btn btn-danger btn-sm" value="刪除">
                                             @endif
-                                        @else
-                                            <input name="edit[{{ $p->pId }}]" type="submit" class="btn btn-primary btn-sm" value="編輯">
-                                            <input name="delete[{{ $p->pId }}]" type="submit" class="btn btn-danger btn-sm" value="刪除">
-                                        @endif
-                                    </td>
+                                        </td>
+                                    @endif
                                     <td>
                                         @if(Request::has("edit"))
                                             @if(key(Request::input("edit")) == $p->pId)

@@ -87,7 +87,7 @@
                 <div class="links">
                     <a href="{{ url('/products_list') }}">商品列表</a>
                     <a href="{{ url('/order') }}">下訂單</a>
-                    <a href="#">訂單資料</a>
+                    <a href="{{ url('/order_details') }}">訂單資料</a>
                     <a href="#">訂單狀態</a>
                     <a href="#">客戶資料表</a>
                 </div>
