@@ -11,7 +11,7 @@
                 @auth
                     <table class=" table table-hover thead-light">
                         <thead align="center" class="thead-light">
-                            @if(Auth::user()->userName == "rodneytai97")
+                            @if(Auth::user()->auth == "admin")
                                 <td width="200px">功能</td>
                             @endif    
                             <td>商品編號</td>
@@ -22,7 +22,7 @@
                         <tbody>
                             @foreach($products as $p)
                                 <tr align="center">
-                                    @if(Auth::user()->userName == "rodneytai97")
+                                    @if(Auth::user()->auth == "admin")
                                         <td>
                                             @if(Request::has('edit'))
                                                 @if(key(Request::input("edit")) == $p->pId)
