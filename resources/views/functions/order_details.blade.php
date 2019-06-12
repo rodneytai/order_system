@@ -17,9 +17,9 @@
                             <td>訂單編號</td>
                             <td>商品</td>
                             <td>單位</td>
-                            <td>單價</td>
-                            <td>數量</td>
-                            <td>金額</td>
+                            <td align="right">單價</td>
+                            <td align="right">數量</td>
+                            <td align="right">金額</td>
                             <td>訂購者</td> 
                         </thead>
                         <tbody>
@@ -28,9 +28,9 @@
                                     <td>{{ $d->orderId }}</td>
                                     <td>{{ $d->pName }}</td>
                                     <td>{{ $d->orderUnit }}</td>
-                                    <td>{{ $d->orderUnitPrice }}</td>
-                                    <td>{{ $d->orderAmount }}</td>
-                                    <td>{{ $d->orderTotal }}</td>
+                                    <td align="right">{{ $d->orderUnitPrice }}</td>
+                                    <td align="right">{{ $d->orderAmount }}</td>
+                                    <td align="right">{{ $d->orderTotal }}</td>
                                     <td>{{ $d->cusName }}</td>
                                 </tr>
                             @endforeach
@@ -45,8 +45,9 @@
         </div>
     </div>
 </div>
-</form>
-<script>
 
-</script>
+<div class="pagination justify-content-center">
+    {{ $details->render() }}
+</div>
+</form>
 @endsection

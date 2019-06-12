@@ -17,7 +17,7 @@
                             <td>商品編號</td>
                             <td>商品</td>
                             <td>單位</td>
-                            <td>單價</td>
+                            <td align="right">單價</td>
                         </thead>
                         <tbody>
                             @foreach($products as $p)

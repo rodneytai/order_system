@@ -19,8 +19,8 @@ class DeliveryDetails extends Migration
             $table->increments('dId');
             $table->integer('dOrderId')->unsigned(); 
             $table->string('dStatus', 10); 
-            $table->string('dTime', 20); 
-            $table->string('dArriveTime', 20);
+            $table->string('dTime', 20)->nullable(); 
+            $table->string('dArriveTime', 20)->nullable();
         });
         Schema::table('DeliveryDetails', function($table) {
             $table->foreign('dOrderId') 

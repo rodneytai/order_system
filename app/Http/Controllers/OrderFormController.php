@@ -17,20 +17,20 @@ class OrderFormController extends Controller
         if ($isAdmin == 'admin') 
         {
             $details = DB::table("OrderInfo")
-                     ->leftjoin("users", "users.id", "OrderInfo.orderCus")
-                     ->leftjoin("ProductInfo", "OrderInfo.orderGoods", "ProductInfo.pId")
-                     ->select(
-                        'orderId',
-                        'orderGoods',
-                        'orderUnit',
-                        'orderUnitPrice',
-                        'orderAmount',
-                        'orderTotal',
-                        'orderCus',
-                        'users.cusName',
-                        'pName'
-                     )
-                     ->get();
+                         ->leftjoin("users", "users.id", "OrderInfo.orderCus")
+                         ->leftjoin("ProductInfo", "OrderInfo.orderGoods", "ProductInfo.pId")
+                         ->select(
+                            'orderId',
+                            'orderGoods',
+                            'orderUnit',
+                            'orderUnitPrice',
+                            'orderAmount',
+                            'orderTotal',
+                            'orderCus',
+                            'users.cusName',
+                            'pName'
+                         )
+                         ->paginate(10);
         }
         else
         {
@@ -50,7 +50,7 @@ class OrderFormController extends Controller
                             'pName'
                          )
                          ->where('OrderInfo.orderCus', $user)
-                     ->get();
+                     ->paginate(10);
         }
         return view('functions.order_details', compact('details'));
     }
