@@ -43,11 +43,37 @@
                                         @if(Request::has("edit"))
                                             @if(key(Request::input("edit")) == $d->dId)
                                                 <select name="status">
-                                                    <option value="{{ $d->dStatus}}" selected>{{ $d->dStatus}}</option>
-                                                    <option value="準備中">準備中</option>
-                                                    <option value="待出貨">待出貨</option>
-                                                    <option value="已出貨">已出貨</option>
-                                                    <option value="已送達">已送達</option>
+                                                    @if($d->dStatus == "確認訂單中")
+                                                        <option value="{{ $d->dStatus}}" selected>{{ $d->dStatus}}</option>
+                                                        <option value="準備中">準備中</option>
+                                                        <option value="待出貨">待出貨</option>
+                                                        <option value="已出貨">已出貨</option>
+                                                        <option value="已送達">已送達</option>
+                                                    @elseif($d->dStatus == "準備中")
+                                                        <option value="{{ $d->dStatus}}" selected>{{ $d->dStatus}}</option>
+                                                        <option value="確認訂單中">確認訂單中</option>
+                                                        <option value="待出貨">待出貨</option>
+                                                        <option value="已出貨">已出貨</option>
+                                                        <option value="已送達">已送達</option>
+                                                    @elseif($d->dStatus == "待出貨")
+                                                        <option value="{{ $d->dStatus}}" selected>{{ $d->dStatus}}</option>
+                                                        <option value="確認訂單中">確認訂單中</option>
+                                                        <option value="準備中">準備中</option>
+                                                        <option value="已出貨">已出貨</option>
+                                                        <option value="已送達">已送達</option>
+                                                    @elseif($d->dStatus == "已出貨")
+                                                        <option value="{{ $d->dStatus}}" selected>{{ $d->dStatus}}</option>
+                                                        <option value="確認訂單中">確認訂單中</option>
+                                                        <option value="準備中">準備中</option>
+                                                        <option value="待出貨">待出貨</option>
+                                                        <option value="已送達">已送達</option>
+                                                    @elseif($d->dStatus == "已送達")
+                                                        <option value="{{ $d->dStatus}}" selected>{{ $d->dStatus}}</option>
+                                                        <option value="確認訂單中">確認訂單中</option>
+                                                        <option value="準備中">準備中</option>
+                                                        <option value="待出貨">待出貨</option>
+                                                        <option value="已出貨">已出貨</option>
+                                                    @endif
                                                 </select>
                                             @else
                                                 {{ $d->dStatus }}
