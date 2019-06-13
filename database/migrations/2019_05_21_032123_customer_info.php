@@ -14,17 +14,17 @@ class CustomerInfo extends Migration
     public function up()
     {
         //
-        Schema::create('CustomerInfo', function (Blueprint $table) {
-            $table->bigIncrements('cusId', 10);
-            $table->string('cusName', 20);
-            $table->string('cusPhone', 15);
-            $table->string('cusAddress', 50);
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-        });
+        // Schema::create('CustomerInfo', function (Blueprint $table) {
+        //     $table->bigIncrements('cusId', 10);
+        //     $table->string('cusName', 20);
+        //     $table->string('cusPhone', 15);
+        //     $table->string('cusAddress', 50);
+        //     $table->string('email')->unique();
+        //     $table->timestamp('email_verified_at')->nullable();
+        //     $table->string('password');
+        //     $table->rememberToken();
+        //     $table->timestamps();
+        // });
     }
 
     /**

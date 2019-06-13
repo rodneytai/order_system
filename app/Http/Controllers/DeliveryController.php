@@ -20,7 +20,7 @@ class DeliveryController extends Controller
             if ($request->input("dArriveTime") == null) 
                 $dArriveTime = null;
             else
-                $dArriveTime = date('Y-m-d', strtotime($request->input("dArrivetime")));
+                $dArriveTime = date('Y-m-d', strtotime($request->input("dArriveTime")));
             DB::table("DeliveryDetails")
               ->where("dId", key($request->input("save")) )
               ->update([

@@ -17,7 +17,7 @@ class DeliveryDetails extends Migration
         Schema::create('DeliveryDetails', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('dId');
-            $table->integer('dOrderId')->unsigned(); 
+            $table->integer('dOrderId')->length(20)->unsigned(); 
             $table->string('dStatus', 10); 
             $table->string('dTime', 20)->nullable(); 
             $table->string('dArriveTime', 20)->nullable();
