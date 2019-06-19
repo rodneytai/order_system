@@ -116,5 +116,8 @@
         </div>
     </div>
 </div>
+<div class="pagination justify-content-center">
+    {{ $delivery->render() }}
+</div>
 </form>
 @endsection

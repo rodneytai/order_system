@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>簡易訂單系統</title>
+        <title>簡易線上訂單</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    簡易訂單系統
+                    簡易線上訂單
                 </div>
 
                 <div class="links">
@@ -89,7 +89,7 @@
                     <a href="{{ url('/order') }}">下訂單</a>
                     <a href="{{ url('/order_details') }}">訂單資料</a>
                     <a href="{{ url('/delivery') }}">訂單狀態</a>
-                    <a href="#">客戶資料表</a>
+                    {{-- <a href="#">客戶資料表</a> --}}
                 </div>
             </div>
         </div>
