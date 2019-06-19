@@ -30,6 +30,7 @@ $(document).ready(function() {
             $("#pName").closest('tr').find('.orderTotal').text(qty*price);
             $('.unit').val(unit);
             $('.unitprice').val(unitPrice);
+            $('.totalPrice').val(qty*price);
             $('#edit_amount').on('input',function() {
                 var qty = $('#edit_amount').val();
                 $("#pName").closest('tr').find('.orderTotal').text(qty*price);

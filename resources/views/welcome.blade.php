@@ -12,12 +12,16 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                /*background-color: #fff;*/
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
-                font-weight: 200;
+                font-weight: 500;
                 height: 100vh;
                 margin: 0;
+                background-image: url("public/bg/we-deliver.png");
+                background-repeat: no-repeat;
+                background-position: right bottom;
+                background-color: #dfe3ee
             }
 
             .full-height {
@@ -45,13 +49,13 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 95px;
             }
 
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 13px;
+                font-size: 25px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -80,15 +84,15 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md" style="background-image: url('public/bg/bg.png'); background-repeat: no-repeat; background-position: left top;background-size: 50px 50px;">
                     簡易線上訂單
                 </div>
 
                 <div class="links">
-                    <a href="{{ url('/products_list') }}">商品列表</a>
-                    <a href="{{ url('/order') }}">下訂單</a>
-                    <a href="{{ url('/order_details') }}">訂單資料</a>
-                    <a href="{{ url('/delivery') }}">訂單狀態</a>
+                    <a href="{{ url('/products_list') }}" style="background-image: url('public/bg/goods.png'); background-repeat: no-repeat; background-position: left;background-size: 30px 30px;">商品列表</a>
+                    <a href="{{ url('/order') }}" style="background-image: url('public/bg/order.png'); background-repeat: no-repeat; background-position: left;background-size: 30px 30px;">下訂單</a>
+                    <a href="{{ url('/order_details') }}" style="background-image: url('public/bg/CART.png'); background-repeat: no-repeat; background-position: left;background-size: 28px 30px;">訂單資料</a>
+                    <a href="{{ url('/delivery') }}" style="background-image: url('public/bg/delivery.png'); background-repeat: no-repeat; background-position: left;background-size: 28px 40px;">訂單狀態</a>
                     {{-- <a href="#">客戶資料表</a> --}}
                 </div>
             </div>

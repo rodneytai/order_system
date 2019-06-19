@@ -11,26 +11,27 @@ class DeliveryController extends Controller
     //
     public function index(Request $request)
     {
-        if ($request->has("save")) 
-        {
-            if ($request->input("dTime") == null) 
-                $dTime = null;
-            else
-                $dTime = date('Y-m-d', strtotime($request->input("dTime")));
-            if ($request->input("dArriveTime") == null) 
-                $dArriveTime = null;
-            else
-                $dArriveTime = date('Y-m-d', strtotime($request->input("dArriveTime")));
-            DB::table("DeliveryDetails")
-              ->where("dId", key($request->input("save")) )
-              ->update([
-                  "dStatus" => $request->input("status"),
-                  "dTime" => $dTime,
-                  "dArriveTime" => $dArriveTime,
-              ]);
-        }
         if (Auth::user()->auth == "admin") 
         {
+            
+            if ($request->has("save")) 
+            {
+                if ($request->input("dTime") == null) 
+                    $dTime = null;
+                else
+                    $dTime = date('Y-m-d', strtotime($request->input("dTime")));
+                if ($request->input("dArriveTime") == null) 
+                    $dArriveTime = null;
+                else
+                    $dArriveTime = date('Y-m-d', strtotime($request->input("dArriveTime")));
+                DB::table("DeliveryDetails")
+                  ->where("dId", key($request->input("save")) )
+                  ->update([
+                      "dStatus" => $request->input("status"),
+                      "dTime" => $dTime,
+                      "dArriveTime" => $dArriveTime,
+                  ]);
+            }
             $delivery = DB::table("DeliveryDetails")
                           ->paginate(10);
         }
