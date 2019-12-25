@@ -33,7 +33,7 @@ class DeliveryController extends Controller
                   ]);
             }
             $delivery = DB::table("DeliveryDetails")
-                          ->paginate(10);asd
+                          ->paginate(10);
         }
         else
         {
