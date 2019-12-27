@@ -4,6 +4,11 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
 $(document).ready(function() { 
+    $.ajaxSetup({
+        headers:{
+            'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     var val = <?php echo json_encode($products); ?>;
     $( "#product_name" ).change(function () {
         var id = "";
@@ -31,6 +36,27 @@ $(document).ready(function() {
     })
     
     .change();
+
+    $('#order').click(function(event){
+        event.preventDefault();
+        $.ajax({
+            url: '{{ url("/order/order") }}',
+            type: 'POST',
+            data: {
+                product_name : $('#product_name').val(),
+                qty : $('#qty').val(),
+                price : $('#totalPrice').val(),
+                customer : $('input[name=customer]').val()
+            },
+            success:function(data){
+                console.log(data);
+                confirm("Success!");
+            },
+            error: function(data){
+                console.log('Error', data);
+            }
+        });
+    });
 }); 
 </script>
 <form method="post">
@@ -82,7 +108,7 @@ $(document).ready(function() {
                         </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <input type="submit" class="btn btn-primary" name="order" value="{{ __('確定訂購') }}">
+                                <button type="button" class="btn btn-primary" name="order" id="order" value="">{{ __('確定訂購') }}</button>
                             </div>
                         </div>
                     </form>

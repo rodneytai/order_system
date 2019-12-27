@@ -63,7 +63,7 @@ $(document).ready(function() {
             
                 <div class="card-body">
                     @auth
-                    <table class=" table table-hover thead-light">
+                    <table class=" table table-hover thead-light table-responsive w-auto">
                         <thead align="center" class="thead-light">
                             @if(Auth::user()->auth == "admin")
                                 <td>功能</td>
