@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header" align="center">{{ __('訂單狀態') }}</div>
                 @auth
-                    <table class=" table table-hover thead-light table-responsive w-auto">
+                    <table class=" table table-hover thead-light table-responsive-xl .w-auto">
                         <thead align="center" class="thead-light">
                             @if(Auth::user()->auth == "admin")
                                 <td>功能</td>

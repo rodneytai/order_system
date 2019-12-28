@@ -50,7 +50,7 @@ $(document).ready(function() {
             },
             success:function(data){
                 console.log(data);
-                confirm("Success!");
+                confirm("成功下訂單!");
             },
             error: function(data){
                 console.log('Error', data);

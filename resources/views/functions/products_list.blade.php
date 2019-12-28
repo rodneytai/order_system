@@ -41,7 +41,7 @@ $(document).ready(function(){
                     trHTML += '<td>' + p.pId + '</td>';
                     trHTML += '<td>' + p.pName + '</td>';
                     trHTML += '<td>' + p.pUnit + '</td>';
-                    trHTML += '<td>' + p.pPrice + '</td>';
+                    trHTML += '<td align=right>' + p.pPrice + '</td>';
                     trHTML += '</tr>';
                     $("#tbody").html(trHTML);
                 });
@@ -98,7 +98,7 @@ $(document).ready(function(){
                     trHTML += '<td>' + products[0].pId + '</td>';
                     trHTML += '<td>' + products[0].pName + '</td>';
                     trHTML += '<td>' + products[0].pUnit + '</td>';
-                    trHTML += '<td>' + products[0].pPrice + '</td>';
+                    trHTML += '<td align=right>' + products[0].pPrice + '</td>';
                     trHTML += '</tr>';
                 $("#pid_" + products[0].pId).replaceWith(trHTML);
                 $('#userForm').trigger("reset");
@@ -141,7 +141,7 @@ $(document).ready(function(){
             <div class="card">
                 <div class="card-header" align="center">{{ __('商品列表') }}</div>
                 @auth
-                    <table class=" table table-hover thead-light table-responsive">
+                    <table class="table table-hover thead-light table-responsive-xl .w-auto">
                         <div style="margin-left: 5px; margin-top: 5px; margin-bottom: 5px;">
                             <div>搜尋：<input type="text" id="search"></div>
                         </div>
