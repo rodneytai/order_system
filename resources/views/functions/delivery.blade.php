@@ -127,7 +127,7 @@ $(document).ready(function() {
             <div class="card">
                 <div class="card-header" align="center">{{ __('訂單狀態') }}</div>
                 @auth
-                    <table class=" table table-hover thead-light table-responsive-xl .w-auto">
+                    <table class=" table table-hover thead-light table-responsive-l .w-auto">
                         <div style="margin-left: 5px; margin-top: 5px; margin-bottom: 5px;">
                             <div>搜尋：<input type="text" id="search" placeholder="請輸入訂單編號"></div>
                         </div>

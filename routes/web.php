@@ -37,6 +37,16 @@ Route::match(['get', 'post'], '/delivery', 'DeliveryController@index')->middlewa
 Route::match(['get', 'post'], '/delivery/edit/{id}', 'DeliveryController@edit')->middleware('auth');
 Route::match(['get', 'post'], '/delivery/save', 'DeliveryController@save')->middleware('auth');
 Route::match(['get', 'post'], '/delivery/search', 'DeliveryController@search')->middleware('auth');
+
+
+Route::match(['get', 'post'], '/contact', 'ContactController@index');
+Route::match(['get', 'post'], '/contact/contact', 'ContactController@contact');
+
+
+Route::match(['get', 'post'], '/checkcontact', 'CheckContactController@index');
+Route::match(['get', 'post'], '/checkcontact/more/{id}', 'CheckContactController@more');
+Route::match(['get', 'post'], '/checkcontact/contact', 'CheckContactController@contact');
+Route::match(['get', 'post'], '/checkcontact/solve', 'CheckContactController@solve');
 // Route::middleware(['auth'])->group(function () {
 //     Route::get('/approval', 'HomeController@approval')->name('approval');
 //     Route::get('/home', 'HomeController@index')->name('home');
