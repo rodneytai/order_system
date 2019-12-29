@@ -31,8 +31,12 @@ Route::match(['get', 'post'], '/order_details', 'OrderFormController@index')->mi
 Route::match(['get', 'post'], '/order_details/edit/{id}', 'OrderFormController@edit')->middleware('auth');
 Route::match(['get', 'post'], '/order_details/save', 'OrderFormController@save')->middleware('auth');
 Route::match(['get', 'post', 'delete'], '/order_details/delete/{id}', 'OrderFormController@delete')->middleware('auth');
+Route::match(['get', 'post'], '/order_details/search', 'OrderFormController@search')->middleware('auth');
 
 Route::match(['get', 'post'], '/delivery', 'DeliveryController@index')->middleware('auth');
+Route::match(['get', 'post'], '/delivery/edit/{id}', 'DeliveryController@edit')->middleware('auth');
+Route::match(['get', 'post'], '/delivery/save', 'DeliveryController@save')->middleware('auth');
+Route::match(['get', 'post'], '/delivery/search', 'DeliveryController@search')->middleware('auth');
 // Route::middleware(['auth'])->group(function () {
 //     Route::get('/approval', 'HomeController@approval')->name('approval');
 //     Route::get('/home', 'HomeController@index')->name('home');

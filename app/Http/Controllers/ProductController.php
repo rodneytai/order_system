@@ -51,11 +51,12 @@ class ProductController extends Controller
     //ajax search products
     public function search(Request $request)
     {
+        $auth = false;
         if (Auth::user()->auth == "admin") 
             $auth = true;
         $products = DB::table('ProductInfo')
                       ->where('pName', 'LIKE', '%'.$request->text.'%')
-                      ->paginate(15)
+                      ->paginate(10)
                       ->toArray();
         return response()->json([
             "auth" => $auth,

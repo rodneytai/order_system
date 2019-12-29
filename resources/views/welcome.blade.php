@@ -84,7 +84,7 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md" style="background-image: url('public/bg/bg.png'); background-repeat: no-repeat; background-position: left top;background-size: 50px 50px;">
+                <div class="title m-b-md" style="background-image: url('public/bg/bg.png'); background-repeat: no-repeat; background-position: left top;background-size: 100px 100px;">
                     簡易線上訂單
                 </div>
 
@@ -93,7 +93,7 @@
                     <a href="{{ url('/order') }}" style="background-image: url('public/bg/order.png'); background-repeat: no-repeat; background-position: left;background-size: 30px 30px;">下訂單</a>
                     <a href="{{ url('/order_details') }}" style="background-image: url('public/bg/CART.png'); background-repeat: no-repeat; background-position: left;background-size: 28px 30px;">訂單資料</a>
                     <a href="{{ url('/delivery') }}" style="background-image: url('public/bg/delivery.png'); background-repeat: no-repeat; background-position: left;background-size: 28px 40px;">訂單狀態</a>
-                    {{-- <a href="#">客戶資料表</a> --}}
+                    <a href="{{ url('/contact') }}" style="background-image: url('public/bg/contactus.png'); background-repeat: no-repeat; background-position: left;background-size: 28px 30px;">聯絡我們</a>
                 </div>
             </div>
         </div>

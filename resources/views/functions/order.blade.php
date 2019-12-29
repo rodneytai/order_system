@@ -13,17 +13,21 @@ $(document).ready(function() {
     $( "#product_name" ).change(function () {
         var id = "";
         var unit = "";
+        var unitPrice = "";
         $( "#product_name option:selected" ).each(function() {
             $('#qty').val('');
             $('#total').text(0);
             $('#totalPrice').val(0);
             id = $( this ).val();
             var a = $.map(val, function(value, key){ //find id in array and get unit 
-                if (value.pId == id) 
+                if (value.pId == id) {
                     unit = value.pUnit;
+                    unitPrice = value.pPrice;
+                }
             });
         });
         $( "#pUnit" ).text( unit );
+        $('#unitPrice').text(unitPrice);
         $('#qty').on('input',function() {
             var qty = $('#qty').val();
             var price = $.map(val, function(value, key){ //find id in array and get price
@@ -49,8 +53,7 @@ $(document).ready(function() {
                 customer : $('input[name=customer]').val()
             },
             success:function(data){
-                console.log(data);
-                confirm("成功下訂單!");
+                confirm(data.msg);
             },
             error: function(data){
                 console.log('Error', data);
@@ -75,7 +78,6 @@ $(document).ready(function() {
                         <span style="color: red; align-items: center;">{{ $msg }}</span>
                     @endif
                     <form method="POST">
-                        @csrf
                         <div class="form-group row">
                             <label for="pName" class="col-md-4 col-form-label text-md-right">{{ __('商品') }}</label>
                             <div class="col-md-6">
@@ -84,6 +86,12 @@ $(document).ready(function() {
                                         <option value="{{ $p->pId }}">{{ $p->pName }}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="pName" class="col-md-4 col-form-label text-md-right">{{ __('單價') }}</label>
+                            <div class="col-md-6">
+                                <span id="unitPrice"></span>
                             </div>
                         </div>
                         <div class="form-group row">

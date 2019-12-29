@@ -107,12 +107,13 @@ $(document).ready(function() {
                             '<a href="javascript:void(0)" id="delete" data-id="' + d[0].orderId + '" class="btn btn-danger btn-sm delete-p">刪除</a>';
                         trHTML += '</td>';
                     }
+                    trHTML += '<td>' + d[0].orderId + '</td>';
                     trHTML += '<td>' + d[0].pName + '</td>';
                     trHTML += '<td>' + d[0].orderUnit + '</td>';
                     trHTML += '<td align=right>' + d[0].orderUnitPrice + '</td>';
                     trHTML += '<td align=right>' + d[0].orderAmount + '</td>';
                     trHTML += '<td align=right>' + d[0].orderTotal + '</td>';
-                    trHTML += '<td>' + d[0].orderCus + '</td>';
+                    trHTML += '<td>' + d[0].cusName + '</td>';
                     trHTML += '</tr>';
                 $("#dId_" + d[0].orderId).replaceWith(trHTML);
                 $('#userForm').trigger("reset");
@@ -146,6 +147,46 @@ $(document).ready(function() {
             });
         }
     });   
+    // SEARCH FUNCTION
+    $("#search").keyup(function(){
+        var text = $("#search").val();
+        $.ajax({
+            url: '{{ url("/order_details/search") }}',
+            type: 'POST',
+            data: {
+                text: text
+            },
+            success:function(data){
+                var d = data.details;
+                var auth = data.auth;
+                var trHTML = '';
+                console.log(data);
+                $.each(d.data, function (k, p) {
+                    trHTML += '<tr align="center" id="pid_'+p.orderId+'">'
+                    if (auth) 
+                    {
+                        trHTML += '<td>';
+                        trHTML += 
+                            '<a href="javascript:void(0)" id="edit" data-id="' + p.orderId + '" class="btn btn-primary btn-sm">編輯</a>'+
+                            '<a href="javascript:void(0)" id="delete" data-id="' + p.orderId + '" class="btn btn-danger btn-sm delete-p">刪除</a>';
+                        trHTML += '</td>';
+                    }
+                    trHTML += '<td>' + p.orderId + '</td>';
+                    trHTML += '<td>' + p.pName + '</td>';
+                    trHTML += '<td>' + p.orderUnit + '</td>';
+                    trHTML += '<td align=right>' + p.orderUnitPrice + '</td>';
+                    trHTML += '<td align=right>' + p.orderAmount + '</td>';
+                    trHTML += '<td align=right>' + p.orderTotal + '</td>';
+                    trHTML += '<td>' + p.cusName + '</td>';
+                    trHTML += '</tr>';
+                    $("#tbody").html(trHTML);
+                });
+            },
+            error: function(data){
+                console.log('Error', data);
+            }
+        })
+    });
 }); 
 </script>
 <form method="post">
@@ -159,6 +200,9 @@ $(document).ready(function() {
                 <div class="card-body">
                     @auth
                     <table class=" table table-hover thead-light table-responsive-xl .w-auto">
+                        <div style="margin-left: 5px; margin-top: 5px; margin-bottom: 5px;">
+                            <div>搜尋：<input type="text" id="search" placeholder="請輸入訂單編號"></div>
+                        </div>
                         <thead align="center" class="thead-light">
                             @if(Auth::user()->auth == "admin")
                                 <td>功能</td>

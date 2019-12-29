@@ -141,7 +141,7 @@ $(document).ready(function(){
             <div class="card">
                 <div class="card-header" align="center">{{ __('商品列表') }}</div>
                 @auth
-                    <table class="table table-hover thead-light table-responsive-xl .w-auto">
+                    <table class="table table-hover thead-light table-responsive-s .w-auto">
                         <div style="margin-left: 5px; margin-top: 5px; margin-bottom: 5px;">
                             <div>搜尋：<input type="text" id="search"></div>
                         </div>

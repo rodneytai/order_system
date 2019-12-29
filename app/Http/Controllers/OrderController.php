@@ -84,9 +84,12 @@ class OrderController extends Controller
                 'product_name' => 'required',
                 'qty' => 'required',
             ], $messages);
+            $msg = "";
             if ($validator->fails()) {
-                return redirect('/order')
-                            ->withErrors($validator);
+                $msg = "請輸入數量";
+                return response()->json([
+                    "msg" => $msg
+                ]);
             }
             else
             {
@@ -128,7 +131,10 @@ class OrderController extends Controller
                   ]);
                 if (env("DB_CONNECTION") == 'sqlsrv')
                     DB::unprepared('SET IDENTITY_INSERT DeliveryDetails OFF');
-                $msg = "Success";
+                $msg = "成功下訂單";
+                return response()->json([
+                    "msg" => $msg
+                ]);
             }     
         }
     }
