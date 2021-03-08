@@ -1,4 +1,4 @@
-# Easy Ordering System 2019 DB project
+# Easy Ordering System
 ## This is based on Laravel 5.8 framework
 
 System requirements:
